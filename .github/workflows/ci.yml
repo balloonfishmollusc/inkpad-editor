@@ -27,6 +27,7 @@ jobs:
           npm install
           npm run build
           python3 postprocess.py
+          mv dist/inkpad-editor.html dist/inkpad-editor-${GITHUB_SHA:0:7}.html
       - uses: actions/upload-artifact@v3
         with:
           name: inkpad-editor-${GITHUB_SHA:0:7}
