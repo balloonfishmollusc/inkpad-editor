@@ -1,0 +1,45 @@
+<!doctype html>
+<meta charset=utf8>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>inkpad-editor</title>
+
+<style>
+    ::-webkit-scrollbar {
+      width: 12px;
+    }
+    
+    ::-webkit-scrollbar-track {
+      background: rgb(13,17,23);
+    }
+     
+    ::-webkit-scrollbar-thumb {
+      background: rgb(104, 104, 104); 
+      border-radius: 6px;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgb(104, 104, 104); 
+    }
+</style>
+
+<style>
+@font-face{
+    font-family:"SourceCodePro";
+    src: url("https://inkpad.dev/assets/assets/fonts/SourceCodePro-Regular.ttf");
+}
+
+body {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(13,17,23);
+    zoom: 0.9;
+}
+
+.cm-editor { height: 100%; width: 100%;}
+.cm-scroller { overflow: hidden; }
+</style>
+
+<div id=editor></div>
+
+<script type=module src="./index.js"></script>
