@@ -10,5 +10,5 @@ with open(f"dist/{js_file}", encoding='utf-8') as f:
 
 html = html.replace(f'<script type="module" src="/editor/{js_file}"></script>', f'<script type="module">\n{js}\n</script>')
 
-with open("dist/inkpad_editor.html", "wt", encoding='utf-8') as f:
+with open("dist/inkpad-editor.html", "wt", encoding='utf-8') as f:
     f.write(html)
