@@ -30,6 +30,6 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: inkpad-editor
-          path: dist/inkpad-editor.html
+          path: dist/inkpad-editor-${GITHUB_SHA:0:7}.html
           
     
