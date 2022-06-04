@@ -26,7 +26,7 @@ jobs:
       - run: |
           npm install
           npm run build
-          python3 post_process.py
+          python3 postprocess.py
       - uses: actions/upload-artifact@v3
         with:
           name: inkpad-editor
