@@ -1,9 +1,9 @@
 import {simpleMode} from "./simple-mode.js"
 
-var commonAtoms = ["true", "false", "END", "DONE"];
+var commonAtoms = ["true", "false", "END", "DONE", "__newline__"];
 var commonKeywords = ["->", "else", "function", "INCLUDE", "return", "VAR", "CONST", "CHOICE_COUNT", "TURNS_SINCE", "POW", "FLOOR", "CEILING", "INT", "FLOAT", "RANDOM", "SEED_RANDOM"];
 var commonCommands = "array,range,get,set,push,pop,remove,contains,join,str,len,concat,sum,min,max,map,filter,slice,zeros,copy,free,dict,keys,values".split(",");
-var virtualFunctions = ['_on_tap(i)', '_init()', '_draw()', '_get_canvas_size()'];
+var tabletopCommands = ['_on_tap(i)', '_init()', '_draw()', '_get_canvas_size()', '_get_max_players()', 'sync', '__player__'];
 
 export const Inkc = simpleMode({
   start: [
@@ -31,7 +31,7 @@ export const Inkc = simpleMode({
     {regex: /(?:[^\\"]|\\(?:.|$))*/, token: "string"}
   ],
   languageData: {
-    autocomplete: commonAtoms.concat(commonKeywords, commonCommands, virtualFunctions),
+    autocomplete: commonAtoms.concat(commonKeywords, commonCommands, tabletopCommands),
     dontIndentStates: ["comment"],
     indentOnInput: /^\s*\}$/,
     commentTokens: {line: "//"}
