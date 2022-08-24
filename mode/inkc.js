@@ -3,8 +3,9 @@ import {simpleMode} from "./simple-mode.js"
 var commonAtoms = ["true", "false", "END", "DONE"];
 var commonKeywords = ["->", "else", "function", "INCLUDE", "return", "VAR", "CONST", "CHOICE_COUNT", "TURNS_SINCE", "POW", "FLOOR", "CEILING", "INT", "FLOAT", "RANDOM", "SEED_RANDOM"];
 var commonCommands = "array,range,get,set,push,pop,remove,contains,join,str,len,concat,sum,min,max,map,filter,slice,zeros,copy,free,dict,keys,values".split(",");
+var virtualFunctions = ['_on_tap(i)', '_init()', '_draw()', '_get_canvas_size()'];
 
-export const cInk = simpleMode({
+export const Inkc = simpleMode({
   start: [
     {regex: /"/, token: "string", next: "string"},
 
@@ -21,7 +22,6 @@ export const cInk = simpleMode({
     {regex: /{.+?}/, token: "operator"},
 
     {regex: /\/\/.*/, token: "comment"},
-    {regex: /\/\*/, token: "comment", next: "comment"},
     
     {regex: /[\{\[\(]/, indent: true},
     {regex: /[\}\]\)]/, dedent: true}
@@ -30,14 +30,10 @@ export const cInk = simpleMode({
     {regex: /"/, token: "string", next: "start"},
     {regex: /(?:[^\\"]|\\(?:.|$))*/, token: "string"}
   ],
-  comment: [
-    {regex: /.*?\*\//, token: "comment", next: "start"},
-    {regex: /.*/, token: "comment"}
-  ],
   languageData: {
-    autocomplete: commonAtoms.concat(commonKeywords, commonCommands),
+    autocomplete: commonAtoms.concat(commonKeywords, commonCommands, virtualFunctions),
     dontIndentStates: ["comment"],
     indentOnInput: /^\s*\}$/,
-    commentTokens: {line: "//", block: {open: "/*", close: "*/"}}
+    commentTokens: {line: "//"}
   }
 });

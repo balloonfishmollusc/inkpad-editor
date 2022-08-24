@@ -1,7 +1,7 @@
 import { EditorState, EditorView, basicSetup } from "@codemirror/basic-setup"
 import { basicDark } from "./theme";
 import {StreamLanguage} from "@codemirror/stream-parser"
-import {cInk} from "./mode/c-ink"
+import {Inkc} from "./mode/inkc"
 import {decode} from "utf8"
 import {openSearchPanel, closeSearchPanel} from "@codemirror/basic-setup"
 import {undo, redo} from "@codemirror/history"
@@ -11,7 +11,7 @@ let state = EditorState.create({ doc: "", extensions: [
         basicSetup,
         EditorView.lineWrapping,
         basicDark,
-        StreamLanguage.define(cInk),
+        StreamLanguage.define(Inkc),
     ] });
 
 window.view = new EditorView({ state, parent: document.querySelector("#editor") });
