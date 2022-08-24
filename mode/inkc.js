@@ -18,7 +18,7 @@ export const Inkc = simpleMode({
 
     {regex: /\s*(\[.+?\])/, token: "annotation"},
     {regex: /^(?:\[.+?\])?VAR\s[^/\n]*/, token: "operator"},
-    {regex: /\s*~\s[^/\n]*/, token: "operator"},
+    {regex: /\s*~\s[^\n]*/, token: "operator"},
     {regex: /{.+?}/, token: "operator"},
 
     {regex: /\/\/.*/, token: "comment"},
